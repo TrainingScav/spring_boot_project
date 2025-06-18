@@ -3,9 +3,16 @@ package com.tenco.blog.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller // IoC 대상 - 싱글톤 패턴으로 관리 됨
 public class BoardController {
+
+    @PostMapping("/board/save")
+    public String save() {
+
+        return "";
+    }
 
     @GetMapping({"/","/index"})
     public String index() {
