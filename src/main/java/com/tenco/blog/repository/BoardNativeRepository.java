@@ -22,6 +22,15 @@ public class BoardNativeRepository {
         this.em = em;
     }
 
+    // 특정 게시글을 삭제하는 메서드
+    @Transactional
+    public void deleteById(Long id) {
+        Query query = em.createNativeQuery("delete from board_tb where id = ? ");
+        query.setParameter(1, id);
+        // Insert, Update, Delete 실행 시킬 때
+        query.executeUpdate();
+    }
+
     public Board findById(Long id) {
         // WHERE 조건절을 활용해서 단건의 데이터를 조회
         String sqlStr = "select * from board_tb where id = ? ";
