@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
+import com.tenco.blog.utils.*;
+
 
 @Data
 // @Table : 실제 데이터베이스 테이블 명을 지정할 때 사용
@@ -24,4 +26,9 @@ public class Board {
     private String content;
     private String username;
     private Timestamp createdAt; // created_at(스네이크 케이스로 자동변환)
+
+    // 머스태치에서 표현할 시간을 포맷기능을(행위) 스르로 만들자
+    public String getTime() {
+        return MyDateUtil.timestampFormat(createdAt);
+    }
 }
