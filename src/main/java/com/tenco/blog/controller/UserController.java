@@ -19,10 +19,10 @@ public class UserController {
     }
 
     // 주소 설계 : http://localhost:8080/user/update-form
-    @GetMapping("/user/update-form")
+    @GetMapping("/user/update-form.mustache")
     public String updateForm() {
 
-        return "user/update-form";
+        return "user/update-form.mustache";
     }
 
     @GetMapping("/logout")

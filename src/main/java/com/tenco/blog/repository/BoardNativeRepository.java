@@ -66,4 +66,19 @@ public class BoardNativeRepository {
         query.executeUpdate();
 
     }
+    @Transactional
+    public void updateById(Long id, String title, String content, String username) {
+        // update 쿼리, where 절 반드시 사용
+        String sqlStr = " UPDATE board_tb set title = ?, content = ?, username = ? where id = ? ";
+        Query query = em.createNativeQuery(sqlStr);
+
+        query.setParameter(1, title);
+        query.setParameter(2, content);
+        query.setParameter(3, username);
+        query.setParameter(4, id);
+
+        int updateRows = query.executeUpdate();
+
+        System.out.println("수정된 행의 개수 : " + updateRows);
+    }
 }
